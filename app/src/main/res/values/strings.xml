@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SmartTask</string>
+    <string name="app_name">Smart tasks</string>
+    <string name="text_ok">OK</string>
+    <string name="text_close">Close</string>
 </resources>
