@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.smarttask.R
 import com.smarttask.base.BaseActivity
 import com.smarttask.databinding.ActivityMainBinding
+import com.smarttask.extensions.getColorResource
 
 class MainActivity : BaseActivity() {
 
@@ -18,6 +19,7 @@ class MainActivity : BaseActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = getColorResource(R.color.screen_background_color)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
