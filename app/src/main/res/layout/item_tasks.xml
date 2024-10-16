@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toStartOf="@+id/daysLeftTitle"
             app:layout_constraintStart_toStartOf="@+id/titleView"
             app:layout_constraintTop_toBottomOf="@+id/divider"
-            tools:text="Due date" />
+            android:text="@string/due_date" />
 
         <TextView
             android:id="@+id/daysLeftTitle"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toEndOf="@id/dueDateTitle"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             app:layout_constraintTop_toTopOf="@+id/dueDateTitle"
-            tools:text="Days left" />
+            android:text="@string/days_left" />
 
         <TextView
             android:id="@+id/dueDateView"
