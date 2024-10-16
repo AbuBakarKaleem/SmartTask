@@ -1,7 +1,6 @@
 package com.smarttask.data.remote
 
-import com.smarttask.helper.Constants.BASE_URL
-import com.smarttask.helper.Constants.access_token
+import com.smarttask.helper.Constants.END_POINT
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,9 +13,7 @@ object ApiClient {
     }
 
     private val networkInterceptor = Interceptor { chain ->
-        val request = chain.request().newBuilder().addHeader(
-            "Authorization", "Bearer $access_token"
-        ).build()
+        val request = chain.request().newBuilder().build()
         chain.proceed(request)
     }
 
@@ -24,7 +21,7 @@ object ApiClient {
         OkHttpClient.Builder().addInterceptor(loggingInterceptor).addInterceptor(networkInterceptor)
             .build()
 
-    private val retrofit: Retrofit = Retrofit.Builder().baseUrl(BASE_URL).client(httpClient)
+    private val retrofit: Retrofit = Retrofit.Builder().baseUrl(END_POINT).client(httpClient)
         .addConverterFactory(GsonConverterFactory.create()).build()
 
     val apiService: ApiService = retrofit.create(ApiService::class.java)
