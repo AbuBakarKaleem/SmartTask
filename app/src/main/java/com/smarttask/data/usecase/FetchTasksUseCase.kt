@@ -15,11 +15,13 @@ class FetchTasksUseCase {
                 is DataState.Success -> {
                     response.data?.let {
                         response.data.tasks.forEach { tasks ->
-                            val info = tasks.dueDate.toFormattedDateAndDaysLeft(tasks.targetDate)
-                            tasks.formatedDueDate = info.first
-                            tasks.daysLeft = info.second
+                            tasks.dueDate?.let { date ->
+                                val info = date.toFormattedDateAndDaysLeft(tasks.targetDate)
+                                tasks.formatedDueDate = info.first
+                                tasks.daysLeft = info.second
+                            }
                         }
-                        response.data.tasks.sortedBy { it.priorty }
+                        response.data.tasks.sortedBy { it.priority }
                         emit(
                             DataState.Success(response.data)
                         )

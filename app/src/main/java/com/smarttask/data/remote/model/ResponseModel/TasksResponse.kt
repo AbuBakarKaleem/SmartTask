@@ -5,16 +5,16 @@ import java.io.Serializable
 
 
 data class TaskResponse(
-    @SerializedName("results") var tasks: List<Tasks>,
+    @SerializedName("tasks") var tasks: List<Tasks> = emptyList<Tasks>(),
 ) : BaseModel(), Serializable
 
 data class Tasks(
     @SerializedName("id") var id: String = "",
     @SerializedName("TargetDate") var targetDate: String = "",
-    @SerializedName("DueDate") var dueDate: String = "",
+    @SerializedName("DueDate") var dueDate: String? = null,
     @SerializedName("Title") var title: String = "",
     @SerializedName("Description") var description: String = "",
-    @SerializedName("Priority") var priorty: String = "",
+    @SerializedName("Priority") var priority: Int = 0,
     var status: String = "unresolved",
     var formatedDueDate: String = "",
     var daysLeft: String = ""
