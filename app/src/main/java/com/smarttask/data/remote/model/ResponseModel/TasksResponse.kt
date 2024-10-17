@@ -15,9 +15,10 @@ data class Tasks(
     @SerializedName("Title") var title: String = "",
     @SerializedName("Description") var description: String = "",
     @SerializedName("Priority") var priority: Int = 0,
-    var status: String = "unresolved",
+    var status: Int = 0,
     var formatedDueDate: String = "",
-    var daysLeft: String = ""
+    var daysLeft: String = "",
+    var unresolvedComment: String = ""
 
 ) : Serializable
 

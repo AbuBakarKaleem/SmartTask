@@ -1,5 +1,6 @@
 package com.smarttask.base
 
+import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.smarttask.R
 import com.smarttask.R.string
+import com.smarttask.extensions.getColorResource
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -45,7 +48,12 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: Inflate<VB>) 
         }
         alert.setCancelable(cancelable)
 
-        alert.show()
+        val dialog = alert.show()
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            ?.setTextColor(requireContext().getColorResource(R.color.color_green))
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+            ?.setTextColor(requireContext().getColorResource(R.color.color_red))
 
     }
 

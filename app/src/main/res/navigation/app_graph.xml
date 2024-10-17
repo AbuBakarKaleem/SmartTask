@@ -18,5 +18,18 @@
         android:id="@+id/tasksFragment"
         android:name="com.smarttask.ui.fragments.tasks.TasksFragment"
         android:label="fragment_tasks"
-        tools:layout="@layout/fragment_tasks" />
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/toDetailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.smarttask.ui.fragments.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="task"
+            app:argType="com.smarttask.data.remote.model.ResponseModel.Tasks" />
+    </fragment>
 </navigation>

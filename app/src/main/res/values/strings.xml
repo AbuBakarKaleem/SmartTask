@@ -2,10 +2,16 @@
     <string name="app_name">Smart tasks</string>
     <string name="text_ok">OK</string>
     <string name="text_close">Close</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_task_for_today">No task for today</string>
     <string name="today">Today</string>
     <string name="due_date">Due date</string>
     <string name="days_left">Days left</string>
+    <string name="task_detail">Task Detail</string>
+    <string name="unresolved">Unresolved</string>
+    <string name="resolved">Resolved</string>
+    <string name="not_resolved">Not resolved</string>
+    <string name="resolve">Resolve</string>
+    <string name="status_updated_message">Status Updated</string>
+    <string name="can_t_resolve">Can\'t resolve</string>
 </resources>

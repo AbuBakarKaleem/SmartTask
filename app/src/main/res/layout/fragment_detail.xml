@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/color_yellow"
+    tools:context=".ui.fragments.detail.DetailFragment">
+
+    <ImageView
+        android:id="@+id/backView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/headingView"
+        style="@style/headingStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:gravity="center"
+        android:text="@string/task_detail"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/backView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backView"
+        app:layout_constraintTop_toTopOf="@id/backView"
+        tools:text="@string/task_detail" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_24sdp"
+        android:background="@drawable/task_details"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_24sdp"
+        app:layout_constraintEnd_toEndOf="@+id/headingView"
+        app:layout_constraintStart_toStartOf="@+id/backView"
+        app:layout_constraintTop_toBottomOf="@+id/backView">
+
+        <TextView
+            android:id="@+id/titleView"
+            style="@style/headingStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/color_grey"
+            app:layout_constraintEnd_toEndOf="@+id/titleView"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/titleView" />
+
+        <TextView
+            android:id="@+id/dueDateTitle"
+            style="@style/subHeadingStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="@string/due_date"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/daysLeftTitle"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/daysLeftTitle"
+            style="@style/subHeadingStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:text="@string/days_left"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dueDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/dueDateTitle" />
+
+        <TextView
+            android:id="@+id/dueDateView"
+            style="@style/headingStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@+id/daysLeftTitle"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/dueDateTitle"
+            tools:text="Due date" />
+
+        <TextView
+            android:id="@+id/daysLeftView"
+            style="@style/headingStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dueDateView"
+            app:layout_constraintTop_toBottomOf="@+id/daysLeftTitle"
+            app:layout_constraintTop_toTopOf="@+id/dueDateView"
+            tools:text="Days left" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/color_grey"
+            app:layout_constraintEnd_toEndOf="@+id/titleView"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/daysLeftView" />
+
+        <TextView
+            android:id="@+id/descriptionView"
+            style="@style/subHeadingStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="@string/due_date"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/divider3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            tools:text="Description Description Description Description" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:background="@color/color_grey"
+            app:layout_constraintEnd_toEndOf="@+id/titleView"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionView" />
+
+        <TextView
+            android:id="@+id/statusView"
+            style="@style/headingStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@string/unresolved"
+            android:textColor="@color/color_yellow"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/resolveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/amsi_pro_bold"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/resolve"
+        android:textSize="@dimen/_12sdp"
+        app:backgroundTint="@color/color_green"
+        app:layout_constraintEnd_toStartOf="@+id/unResolveButton"
+        app:layout_constraintStart_toStartOf="@id/detailLayout"
+        app:layout_constraintTop_toBottomOf="@+id/detailLayout" />
+
+    <Button
+        android:id="@+id/unResolveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/amsi_pro_bold"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/can_t_resolve"
+        android:textSize="@dimen/_12sdp"
+        app:backgroundTint="@color/color_red"
+        app:layout_constraintEnd_toEndOf="@id/detailLayout"
+        app:layout_constraintStart_toEndOf="@id/resolveButton"
+        app:layout_constraintTop_toBottomOf="@+id/detailLayout" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/endBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="detailLayout,resolveButton,unResolveButton" />
+
+    <ImageView
+        android:id="@+id/statusImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:src="@drawable/sign_resolved"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/detailLayout"
+        app:layout_constraintStart_toStartOf="@id/resolveButton"
+        app:layout_constraintTop_toBottomOf="@+id/endBarrier"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

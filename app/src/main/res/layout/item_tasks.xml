@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/_6sdp"
     app:cardUseCompatPadding="true">
@@ -42,11 +43,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_6sdp"
+            android:text="@string/due_date"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/daysLeftTitle"
             app:layout_constraintStart_toStartOf="@+id/titleView"
-            app:layout_constraintTop_toBottomOf="@+id/divider"
-            android:text="@string/due_date" />
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
 
         <TextView
             android:id="@+id/daysLeftTitle"
@@ -54,18 +55,18 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="end"
+            android:text="@string/days_left"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/dueDateTitle"
             app:layout_constraintTop_toBottomOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="@+id/dueDateTitle"
-            android:text="@string/days_left" />
+            app:layout_constraintTop_toTopOf="@+id/dueDateTitle" />
 
         <TextView
             android:id="@+id/dueDateView"
             style="@style/headingStyle"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6sdp"
             app:layout_constraintEnd_toStartOf="@+id/daysLeftTitle"
             app:layout_constraintStart_toStartOf="@+id/titleView"
