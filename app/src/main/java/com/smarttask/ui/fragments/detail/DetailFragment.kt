@@ -42,31 +42,24 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
 
             when (status) {
                 0 -> {
-                    statusView.apply {
-                        text = getString(string.unresolved)
-                        setTextColor(requireContext().getColorStateListCompat(R.color.color_yellow))
-                    }
+                    updateStatusView(getString(string.unresolved), R.color.color_yellow)
                 }
 
                 1 -> {
-                    statusView.apply {
-                        text = getString(string.resolved)
-                        setTextColor(requireContext().getColorStateListCompat(R.color.color_green))
-                        statusImage.show()
-                        resolveButton.gone()
-                        unResolveButton.gone()
-                    }
+                    updateStatusView(getString(string.resolved), R.color.color_green)
+                    statusImage.show()
+                    resolveButton.gone()
+                    unResolveButton.gone()
+                    updateTaskViewColors(R.color.color_green)
                 }
 
                 2 -> {
-                    statusView.apply {
-                        text = getString(string.not_resolved)
-                        setTextColor(requireContext().getColorStateListCompat(R.color.color_red))
-                        statusImage.setImageDrawable(requireContext().getDrawableCompat(R.drawable.unresolved_sign))
-                        statusImage.show()
-                        resolveButton.gone()
-                        unResolveButton.gone()
-                    }
+                    updateStatusView(getString(string.not_resolved), R.color.color_red)
+                    statusImage.setImageDrawable(requireContext().getDrawableCompat(R.drawable.unresolved_sign))
+                    statusImage.show()
+                    resolveButton.gone()
+                    unResolveButton.gone()
+                    updateTaskViewColors(R.color.color_red)
                 }
 
                 else -> {
@@ -92,6 +85,20 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         }
 
 
+    }
+
+    private fun updateTaskViewColors(colorRes: Int) = with(binding) {
+        val color = requireContext().getColorStateListCompat(colorRes)
+        titleView.setTextColor(color)
+        daysLeftView.setTextColor(color)
+        dueDateView.setTextColor(color)
+    }
+
+    private fun updateStatusView(status: String, colorRes: Int) {
+        binding.statusView.apply {
+            text = status
+            setTextColor(requireContext().getColorStateListCompat(colorRes))
+        }
     }
 
 }

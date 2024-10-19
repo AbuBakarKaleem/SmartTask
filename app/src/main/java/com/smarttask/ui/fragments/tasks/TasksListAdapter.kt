@@ -5,8 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.smarttask.R
 import com.smarttask.data.remote.model.ResponseModel.Tasks
 import com.smarttask.databinding.ItemTasksBinding
+import com.smarttask.extensions.getColorStateListCompat
+import com.smarttask.extensions.getDrawableCompat
+import com.smarttask.extensions.show
 
 class TasksListAdapter(private val listener: (Tasks) -> Unit) :
     RecyclerView.Adapter<TasksListAdapter.TasksViewHolder>() {
@@ -32,8 +36,26 @@ class TasksListAdapter(private val listener: (Tasks) -> Unit) :
                 titleView.text = model.title
                 dueDateView.text = model.formatedDueDate
                 daysLeftView.text = model.daysLeft
+                if (model.status == 1) {
+                    updateTaskViewColors(itemBinding, R.color.color_green)
+                    statusIcon.setImageDrawable(itemBinding.root.context.getDrawableCompat(R.drawable.btn_resolved))
+                    statusIcon.show()
+                } else if (model.status == 2) {
+                    updateTaskViewColors(itemBinding, R.color.color_red)
+                    statusIcon.setImageDrawable(itemBinding.root.context.getDrawableCompat(R.drawable.btn_unresolved))
+                    statusIcon.show()
+                }
                 itemBinding.root.setOnClickListener { listener.invoke(model) }
 
+            }
+        }
+
+        private fun updateTaskViewColors(binding: ItemTasksBinding, colorRes: Int) {
+            binding.apply {
+                val color = itemBinding.root.context.getColorStateListCompat(colorRes)
+                titleView.setTextColor(color)
+                daysLeftView.setTextColor(color)
+                dueDateView.setTextColor(color)
             }
         }
     }

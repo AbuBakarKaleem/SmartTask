@@ -2,7 +2,9 @@ package com.smarttask.data.usecase
 
 import com.smarttask.data.remote.DataState
 import com.smarttask.data.remote.model.ResponseModel.TaskResponse
+import com.smarttask.data.remote.model.ResponseModel.Tasks
 import com.smarttask.data.repository.Repository
+import com.smarttask.extensions.toDate
 import com.smarttask.extensions.toFormattedDateAndDaysLeft
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -21,7 +23,7 @@ class FetchTasksUseCase {
                                 tasks.daysLeft = info.second
                             }
                         }
-                        response.data.tasks.sortedBy { it.priority }
+                        response.data.tasks.sortedWith(compareBy<Tasks> { it.priority }.thenBy { it.targetDate.toDate() })
                         emit(
                             DataState.Success(response.data)
                         )

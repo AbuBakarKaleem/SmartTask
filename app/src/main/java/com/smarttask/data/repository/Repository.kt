@@ -15,7 +15,7 @@ class Repository {
                 DataState.Success(response.body())
             } else {
                 val errorBody = response.errorBody()?.string()
-                DataState.Error(DataState.CustomMessages.Unauthorized(errorBody.toString()))
+                DataState.Error(DataState.CustomMessages.ErrorMessage(errorBody.toString()))
             }
         )
     }.catch {

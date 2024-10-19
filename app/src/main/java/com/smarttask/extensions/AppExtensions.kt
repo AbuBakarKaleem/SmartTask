@@ -90,3 +90,12 @@ fun String.toFormattedDateAndDaysLeft(targetDate: String): Pair<String, String> 
     val daysLeft = diffInMillis / (1000 * 60 * 60 * 24)
     return Pair(formattedDueDate, daysLeft.toString())
 }
+
+fun String.toDate(): Date? {
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    return try {
+        dateFormat.parse(this)
+    } catch (e: Exception) {
+        null
+    }
+}

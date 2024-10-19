@@ -18,7 +18,7 @@ sealed class DataState<T>(
         object HttpException : CustomMessages()
         object SocketTimeOutException : CustomMessages()
         object NoInternet : CustomMessages()
-        data class Unauthorized(override var message: String = "Invalid login. Please check your credentials.") :
+        data class ErrorMessage(override var message: String = "Invalid") :
             CustomMessages()
 
         object InternalServerError : CustomMessages()
