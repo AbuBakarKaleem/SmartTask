@@ -8,49 +8,33 @@
     android:background="@color/color_yellow"
     tools:context=".ui.fragments.tasks.TasksFragment">
 
-    <ImageView
-        android:id="@+id/previousTaskView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_18sdp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/DayTaskView"
+        android:id="@+id/headingView"
         style="@style/headingStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:gravity="center"
-        android:text="@string/today"
+        android:text="@string/tasks"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/previousTaskView"
-        app:layout_constraintEnd_toStartOf="@id/nextTaskView"
-        app:layout_constraintStart_toEndOf="@+id/previousTaskView"
-        app:layout_constraintTop_toTopOf="@id/previousTaskView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Today" />
 
-    <ImageView
-        android:id="@+id/nextTaskView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:src="@drawable/ic_arrow_forward"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/previousTaskView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taskListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/_24sdp"
+        android:layout_marginVertical="@dimen/_18sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/nextTaskView"
-        app:layout_constraintStart_toStartOf="@+id/previousTaskView"
-        app:layout_constraintTop_toBottomOf="@id/previousTaskView"
+        app:layout_constraintEnd_toEndOf="@id/headingView"
+        app:layout_constraintStart_toStartOf="@+id/headingView"
+        app:layout_constraintTop_toBottomOf="@id/headingView"
         tools:itemCount="12"
         tools:listitem="@layout/item_tasks" />
 
@@ -75,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@+id/noTasksNote"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previousTaskView" />
+        app:layout_constraintTop_toBottomOf="@+id/headingView" />
 
     <TextView
         android:id="@+id/noTasksNote"

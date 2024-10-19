@@ -21,21 +21,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:ellipsize="end"
-            android:maxLines="3"
-            app:layout_constraintEnd_toStartOf="@+id/statusIcon"
+            android:maxLines="5"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
-
-        <ImageView
-            android:id="@+id/statusIcon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:visibility="gone"
-            android:src="@drawable/btn_unresolved"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/titleView"
-            app:layout_constraintBottom_toBottomOf="@+id/titleView"/>
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider"
